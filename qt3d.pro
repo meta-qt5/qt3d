@@ -1,4 +1,4 @@
-requires(contains(QT_CONFIG, opengl))
+!tools-only:requires(contains(QT_CONFIG, opengl))
 
 load(configure)
 qtCompileTest(assimp)
@@ -17,3 +17,8 @@ load(qt_parts)
 
 OTHER_FILES += \
     sync.profile
+
+tools-only {
+    sub_tools.depends -= sub_src
+    SUBDIRS = sub_tools
+}
