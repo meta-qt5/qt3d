@@ -1,4 +1,4 @@
-qtHaveModule(gui): \
+!tools-only:qtHaveModule(gui): \
     requires(qtConfig(opengl):!wasm)
 
 CONFIG += examples_need_tools
@@ -16,3 +16,8 @@ load(qt_parts)
 OTHER_FILES += \
     sync.profile \
     .qmake.conf
+
+tools-only {
+    sub_tools.depends -= sub_src
+    SUBDIRS = sub_tools
+}
