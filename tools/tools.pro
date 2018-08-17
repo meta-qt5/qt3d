@@ -1,9 +1,9 @@
 TEMPLATE = subdirs
 
-!qtHaveModule(3dcore): \
+!tools-only:!qtHaveModule(3dcore): \
     return()
 
 QT_FOR_CONFIG += 3dcore-private
-qtConfig(assimp):qtConfig(commandlineparser): {
+tools-only|qtConfig(assimp):qtConfig(commandlineparser): {
     SUBDIRS += qgltf
 }
